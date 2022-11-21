@@ -17,7 +17,17 @@ function generateGrid(setRows) {
             row.appendChild(col);
         }
     }
-    drawCells();
+
+    let numCells = document.querySelectorAll('.cell');
+
+    let numRows = Math.sqrt(numCells.length);
+    let cellWidth = (580 / numRows);
+    numCells.forEach((cell) => {
+        cell.style.width = cellWidth + 'px';
+        cell.style.height = cellWidth + 'px';
+    })
+
+    drawCells(cellWidth);
 }
 
 // Clear Grid before generating new grid
@@ -26,14 +36,17 @@ function clearGrid() {
     gridContainer.textContent = '';
 }
 
-function drawCells() {
+// Draw Cell function when mouse hovers over cells
+function drawCells(cellWidth) {
     // Declare cells variable in nodelist
     const cells = document.querySelectorAll('.cell');
     // Change color of cells when hovering
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
             // Set color of cell when mouseover function is called
-            cell.setAttribute('style', 'background-color: #622569');
+            cell.setAttribute('style', 'background-color: #E17F7F');
+            cell.style.width = cellWidth + 'px';
+            cell.style.height = cellWidth + 'px';
         })
     })
 }
@@ -50,7 +63,7 @@ resetButton.addEventListener('click', () => {
 })
 
 
-
+// Declare button variables for sizing
 const sizeEight = document.querySelector('.eightCells');
 const sizeTwelve = document.querySelector('.twelveCells');
 const sizeSixteen = document.querySelector('.sixteenCells');
@@ -70,5 +83,6 @@ sizeSixteen.addEventListener('click', () => {
     generateGrid(16);
 })
 
-
+// Set Default size to 16x16
 generateGrid(16);
+
