@@ -159,7 +159,7 @@ numCells = document.querySelectorAll('.cell');
 
 // Set Default size to 16x16 and default color
 setRows = 16;
-setColor = '#E17F7F';
+setColor = '#E5EAF5';
 rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']
 titleAnimation();
 generateGrid(setRows);
