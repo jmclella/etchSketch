@@ -17,17 +17,12 @@ function generateGrid(setRows) {
             row.appendChild(col);
         }
     }
+    numCells = document.querySelectorAll('.cell');
 
-    let numCells = document.querySelectorAll('.cell');
-
-    let numRows = Math.sqrt(numCells.length);
-    let cellWidth = (580 / numRows);
     numCells.forEach((cell) => {
-        cell.style.width = cellWidth + 'px';
-        cell.style.height = cellWidth + 'px';
+        cell.style.width = getCellWidth(numCells) + 'px';
+        cell.style.height = getCellWidth(numCells) + 'px';
     })
-
-    drawCells(cellWidth, setColor);
 }
 
 // Clear Grid before generating new grid
@@ -52,56 +47,101 @@ function drawCells(cellWidth, setColor) {
 }
 
 
+// Draw Rainbow Cell function
+function drawRainbowCells(cellWidth, rainbowColors) {
+    // Declare cells variable in nodelist
+    const cells = document.querySelectorAll('.cell');
+    // Change color of cells when hovering
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+            // Set random color of cell when mouseover function is called
+            let randElem = Math.floor(Math.random() * rainbowColors.length);
+            let setColor = rainbowColors[randElem];
+            cell.style.backgroundColor = setColor;
+            cell.style.width = cellWidth + 'px';
+            cell.style.height = cellWidth + 'px';
+        })
+    })
+}
+
+// Get cell width with global numCells variable set in generate grid
+function getCellWidth(numCells) {
+    let numRows = Math.sqrt(numCells.length);
+    let cellWidth = (580 / numRows);
+    return cellWidth;
+}
+
+
 // Declare reset button as variable
 const resetButton = document.querySelector('.resetButton');
 // Reset cell colors after reset button is clicked
 resetButton.addEventListener('click', () => {
-    let numCells = document.querySelectorAll('.cell');
-    let numRows = Math.sqrt(numCells.length);
-    clearGrid()
-    generateGrid(numRows);
+    clearGrid();
+    generateGrid(setRows);
+    drawCells(getCellWidth(numCells), setColor);
 })
+
+
 
 
 // Declare button variables for sizing
-const sizeEight = document.querySelector('.eightCells');
-const sizeTwelve = document.querySelector('.twelveCells');
 const sizeSixteen = document.querySelector('.sixteenCells');
-
-sizeEight.addEventListener('click', () => {
-    clearGrid();
-    generateGrid(8);
-})
-
-sizeTwelve.addEventListener('click', () => {
-    clearGrid();
-    generateGrid(12);
-})
+const sizeThirtyTwo = document.querySelector('.thirtyTwoCells');
+const sizeSixtyFour = document.querySelector('.sixtyFourCells');
 
 sizeSixteen.addEventListener('click', () => {
+    setRows = 16;
     clearGrid();
-    generateGrid(16);
+    generateGrid(setRows);
+    drawCells(getCellWidth(numCells), setColor);
 })
 
-const redButton = document.querySelector('.red')
-const blueButton = document.querySelector('.blue')
-const greenButton = document.querySelector('.green')
-const rainbowButton = document.querySelector('.rainbow')
+sizeThirtyTwo.addEventListener('click', () => {
+    setRows = 32;
+    clearGrid();
+    generateGrid(setRows);
+    drawCells(getCellWidth(numCells), setColor);
+})
 
-setColor = '#E17F7F';
+sizeSixtyFour.addEventListener('click', () => {
+    setRows = 64;
+    clearGrid();
+    generateGrid(setRows);
+    drawCells(getCellWidth(numCells), setColor);
+})
+
+const redButton = document.querySelector('.red');
+const blueButton = document.querySelector('.blue');
+const greenButton = document.querySelector('.green');
+const rainbowButton = document.querySelector('.rainbow');
+
 
 redButton.addEventListener('click', () => {
     setColor = '#E17F7F';
+    drawCells(getCellWidth(numCells), setColor);
 })
 
 blueButton.addEventListener('click', () => {
     setColor = '#7593CE';
+    drawCells(getCellWidth(numCells), setColor);
 })
 
 greenButton.addEventListener('click', () => {
     setColor = '#63BF97';
+    drawCells(getCellWidth(numCells), setColor);
 })
 
-// Set Default size to 16x16
-generateGrid(16);
+rainbowButton.addEventListener('click', () => {
+    drawRainbowCells(getCellWidth(numCells), rainbowColors);
+})
+
+numCells = document.querySelectorAll('.cell');
+
+
+// Set Default size to 16x16 and default color
+setRows = 16;
+setColor = '#E17F7F';
+rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']
+generateGrid(setRows);
+drawCells(getCellWidth(numCells), setColor);
 

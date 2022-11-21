@@ -20,7 +20,6 @@ header {
     background-color: #5C5E76;
     color: #DFE1F2;
     text-align: center;
-    padding: 5px;
 }
 
 header h1 {
@@ -32,11 +31,11 @@ header h1 {
 }
 
 .grid-container {
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
     column-gap: 0px;
     align-items: center;
+    border: 5px solid black;
 }
 
 .container {
@@ -47,7 +46,6 @@ header h1 {
 }
 
 .cell {
-    border: 2px solid black;
     background-color: #b7d7e8;
 }
 
@@ -55,7 +53,7 @@ header h1 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .options {
@@ -97,6 +95,7 @@ button {
     background-color: #667292;
     color: #cfe0e8;
     border: 2px solid black;
+    border-radius: 16px;
 }
 
 button:hover {
@@ -118,5 +117,5 @@ button.green {
 }
 
 button.rainbow {
-    background-color: #EF3EE3;
+    background-color: #9400D3;
 }
