@@ -135,6 +135,25 @@ rainbowButton.addEventListener('click', () => {
     drawRainbowCells(getCellWidth(numCells), rainbowColors);
 })
 
+function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+async function titleAnimation() {
+    const title = document.querySelector('.title');
+    titleText = 'Pixel-Art'
+    titleList = titleText.split('');
+    showText = ''
+    for (let i = 0; i < titleList.length; i++) {
+        await delay(200);
+        showText += titleList[i];
+        title.textContent = showText;
+    }
+}
+
+
 numCells = document.querySelectorAll('.cell');
 
 
@@ -142,6 +161,8 @@ numCells = document.querySelectorAll('.cell');
 setRows = 16;
 setColor = '#E17F7F';
 rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']
+titleAnimation();
 generateGrid(setRows);
 drawCells(getCellWidth(numCells), setColor);
+
 
