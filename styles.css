@@ -42,7 +42,7 @@ header h1 {
     flex-direction: column;
     column-gap: 0px;
     align-items: center;
-    border: 5px solid black;
+    border: 5px solid #d0bdf4;
 }
 
 .container {
@@ -53,7 +53,7 @@ header h1 {
 }
 
 .cell {
-    background-color: #b7d7e8;
+    background-color: #e5eaf5;
 }
 
 .body-container {
@@ -101,7 +101,7 @@ button {
     height: 75px;
     background-color: black;
     color: #80ced6;
-    border: 2px solid #80ced6;
+    border: 2px solid #d0bdf4;
     border-radius: 16px;
 }
 
