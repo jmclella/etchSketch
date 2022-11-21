@@ -27,7 +27,7 @@ function generateGrid(setRows) {
         cell.style.height = cellWidth + 'px';
     })
 
-    drawCells(cellWidth);
+    drawCells(cellWidth, setColor);
 }
 
 // Clear Grid before generating new grid
@@ -37,14 +37,14 @@ function clearGrid() {
 }
 
 // Draw Cell function when mouse hovers over cells
-function drawCells(cellWidth) {
+function drawCells(cellWidth, setColor) {
     // Declare cells variable in nodelist
     const cells = document.querySelectorAll('.cell');
     // Change color of cells when hovering
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
             // Set color of cell when mouseover function is called
-            cell.setAttribute('style', 'background-color: #E17F7F');
+            cell.style.backgroundColor = setColor;
             cell.style.width = cellWidth + 'px';
             cell.style.height = cellWidth + 'px';
         })
@@ -81,6 +81,25 @@ sizeTwelve.addEventListener('click', () => {
 sizeSixteen.addEventListener('click', () => {
     clearGrid();
     generateGrid(16);
+})
+
+const redButton = document.querySelector('.red')
+const blueButton = document.querySelector('.blue')
+const greenButton = document.querySelector('.green')
+const rainbowButton = document.querySelector('.rainbow')
+
+setColor = '#E17F7F';
+
+redButton.addEventListener('click', () => {
+    setColor = '#E17F7F';
+})
+
+blueButton.addEventListener('click', () => {
+    setColor = '#7593CE';
+})
+
+greenButton.addEventListener('click', () => {
+    setColor = '#63BF97';
 })
 
 // Set Default size to 16x16
