@@ -100,29 +100,31 @@ button {
     width: 75px;
     height: 75px;
     background-color: black;
-    color: #80ced6;
+    color: white;
     border: 2px solid #d0bdf4;
     border-radius: 16px;
+    font-weight: bold;
 }
 
 button:hover {
     opacity: .7;
     color: white;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button.red {
-    background-color: #E17F7F;
+    background-color: #ff0101;
 }
 
 button.blue {
-    background-color: #7593CE;
+    background-color: #80ced6;
 }
 
 button.green {
-    background-color: #63BF97;
+    background-color: #45f9ab;
 }
 
 button.rainbow {
-    background-color: #9400D3;
+    background-color: #e027fc;
 }

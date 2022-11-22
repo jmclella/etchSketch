@@ -117,17 +117,17 @@ const rainbowButton = document.querySelector('.rainbow');
 
 
 redButton.addEventListener('click', () => {
-    setColor = '#E17F7F';
+    setColor = '#ff0101';
     drawCells(getCellWidth(numCells), setColor);
 })
 
 blueButton.addEventListener('click', () => {
-    setColor = '#7593CE';
+    setColor = '#80ced6';
     drawCells(getCellWidth(numCells), setColor);
 })
 
 greenButton.addEventListener('click', () => {
-    setColor = '#63BF97';
+    setColor = '#45f9ab';
     drawCells(getCellWidth(numCells), setColor);
 })
 
@@ -159,10 +159,10 @@ numCells = document.querySelectorAll('.cell');
 
 // Set Default size to 16x16 and default color
 setRows = 16;
-setColor = '#E5EAF5';
-rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']
-titleAnimation();
+setColor = '#ff0101';
+rainbowColors = ['#ff0101', '#80ced6', '#45f9ab', '#e027fc']
+
 generateGrid(setRows);
 drawCells(getCellWidth(numCells), setColor);
-
+titleAnimation();
 
